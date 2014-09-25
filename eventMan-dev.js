@@ -1,8 +1,8 @@
 (function(ref){
 	ref.eventMan = eventMan = function(){
 		if (this instanceof eventMan){
-			if (window.___currentUniqueID == undefined)
-				window.___currentUniqueID = 0;
+			if (ref.___currentUniqueID == undefined)
+				ref.___currentUniqueID = 0;
 			return this;
 		} else {
 			new eventMan();
@@ -13,7 +13,7 @@
 		if (element.uniqueID)
 			return element.uniqueID
 		else
-			element.uniqueID = ++window.___currentUniqueID;
+			element.uniqueID = ++ref.___currentUniqueID;
 		return element.uniqueID;
 	}
 	eventMan.prototype.attachEvent = function(element, eventType, callback){
