@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<script src="../eventMan-dev.js"></script>
+<script>
+var eventBoy = new eventMan();
+                eventBoy.attachEvent(window, "load", function(){
+                        var anchor = document.getElementById("aMan");
+                        window.timer = window.timeMan = new Date().getTime();
+                        window.calls = 0;
+                        links = document.getElementsByTagName("a");
+                        eventBoy.attachEvent(links, "click", function(element, e){
+                                e.preventDefault();
+                                element.innerHTML = "eventMan: did this";
+                                window.timeMan = new Date().getTime() - window.timer;
+                                ++window.calls;
+                        });
+
+                        // benchmark test
+                        var input = document.getElementById("iAmInput");
+                        for (var i=0;i<1000;i++)
+                                anchor.click();
+                        console.log("Completed ", window.calls, "calls in", window.timeMan, "ms");
+
+                });
+</script>
+<head>
+<body>
+	<a href="https://Why.Would.You.Inspect.Me/" id="aMan">Hey Click me! I am not Dumb!</a>
+	<input>
+	<input>
+</body>
+</html>

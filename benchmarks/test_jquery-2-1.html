@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<script src="./scripts/jquery-2-1.js"></script>
+<script>
+window.timer = window.timeMan = new Date().getTime();
+window.calls = 0;
+$(document).ready(function(){
+        var anchor = document.getElementById("aMan");
+                $("a").click(function(e){
+                e.preventDefault();
+                this.innerHTML = "jquery: did this";
+                window.timeMan = new Date().getTime() - window.timer;
+                ++window.calls;
+                return false;
+        });
+// benchmark test
+for (var i=0;i<1000;i++)
+        anchor.click();
+console.log("Completed ", window.calls, "calls in", window.timeMan, "ms");
+
+});
+</script>
+<head>
+<body>
+	<a href="https://Why.Would.You.Inspect.Me/" id="aMan">Hey Click me! I am not Dumb!</a>
+	<input>
+	<input>
+</body>
+</html>
