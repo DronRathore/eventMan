@@ -2,6 +2,7 @@ eventMan
 ========
 
 A Simple and fast Event Handler.
+####Under Mozilla Public License
 For time I was searching the answer for global event listeners which are efficient, fast and works without glitch.
 ```eventMan``` binds all of the listener at the root level, Oh yeah you heard me right, it listen everything on ```document.body``` 
 

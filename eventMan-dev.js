@@ -1,3 +1,7 @@
+/*
+	Under Mozilla Public License V2.0
+	Project: eventMan
+*/
 (function(ref){
 	ref.eventMan = eventMan = function(){
 		if (this instanceof eventMan){
