@@ -57,7 +57,6 @@
 	};
 	eventMan.prototype.addEventListener = function(originalElement, el, eventType){
 		var self = this;
-		console.log(originalElement, el, eventType);
 		var originalElement = originalElement;
 		if (eventType == "focus" || eventType == "blur")
 			var el = originalElement;
