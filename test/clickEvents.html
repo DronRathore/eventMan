@@ -1,0 +1,25 @@
+<!doctype html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+	<script src="../eventMan-dev.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var eventBoy = new eventMan();
+		eventBoy.attachEvent(window, "load", function(){
+			var anchor = document.getElementById("aMan");
+			var input  = document.getElementById("iAmInput");
+			eventBoy.attachEvent(anchor, "click", function(element, event){
+				e.preventDefault();
+				element.innerHTML = "Told you bro! I am not Dumb!";
+			});
+			eventBoy.attachEvent(input, "change", function(element, event){
+				e.preventDefault();
+				element.value = "You can't! LOl";
+			});
+		});
+	</script>
+</head>
+<body>
+	<input id="iAmInput">
+	<a href="https://Why.Would.You.Inspect.Me/" id="aMan">Hey Click me! I am not Dumb!</a>
+</body>
+</html>
