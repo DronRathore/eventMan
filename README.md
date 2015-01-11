@@ -1,6 +1,8 @@
 eventMan
 ========
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/DronRathore/eventMan?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 A Simple and fast Event Handler.
 ####Under Mozilla Public License
 For time I was searching the answer for global event listeners which are efficient, fast and works without glitch.
