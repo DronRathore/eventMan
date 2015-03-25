@@ -19,7 +19,7 @@ For me to use it on a webpage having thousands of event listeners causes glitche
 To solve the issue of eventHandling of the common man in modern Web Development Era!(Oh what did I just say) #IYKWIM
 
 ##Whats the level of eventMan?
-Well it can listen on Objects having property ```target```, so Objects of your Model having ```@target = @model``` will work.
+Well it can listen on Objects having property ```target```, 
 But as of now I consider it as just a KinderGarten enabled library, lot to be added, lot to be addressed and optimized with time.
 
 ##Can I Contribute?
