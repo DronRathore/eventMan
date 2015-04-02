@@ -10,11 +10,11 @@
 		eventBoy.attachEvent(window, "load", function(){
 			var anchor = document.getElementById("aMan");
 			var input  = document.getElementById("iAmInput");
-			eventBoy.attachEvent(anchor, "click", function(element, event){
+			eventBoy.attachEvent(anchor, "click", function(element, e){
 				e.preventDefault();
 				element.innerHTML = "Told you bro! I am not Dumb!";
 			});
-			eventBoy.attachEvent(input, "change", function(element, event){
+			eventBoy.attachEvent(input, "change", function(element, e){
 				e.preventDefault();
 				element.value = "You can't! LOl";
 			});
@@ -22,7 +22,9 @@
 	</script>
 </head>
 <body>
-	<input id="iAmInput">
-	<a href="https://Why.Would.You.Inspect.Me/" id="aMan">Hey Click me! I am not Dumb!</a>
+	<div id="some" style="display: inline-block;">
+		<input id="iAmInput">
+		<a href="https://Why.Would.You.Inspect.Me/" id="aMan">Hey Click me! I am not Dumb!</a>
+</div>
 </body>
 </html>
