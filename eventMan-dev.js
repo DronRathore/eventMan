@@ -3,6 +3,10 @@
 	Project: eventMan
 */
 (function(ref){
+	/* 
+		Attaching it to the window
+		Constructor
+	*/
 	ref.eventMan = eventMan = function(){
 		if (this instanceof eventMan){
 			if (ref.___currentUniqueID == undefined)
@@ -12,7 +16,18 @@
 			new eventMan();
 		}
 	}
+	/*
+		The object which keeps all of the listeners list
+		{
+			node_id	: {
+				"eventName" : [Array_List_Of_Callbacks]
+			}
+		}
+	*/
 	eventMan.prototype.list = {};
+	/*
+		A simple hack to generate unique IDs
+	*/
 	eventMan.prototype.getUniqueID = function(element){
 		if (element.uniqueID)
 			return element.uniqueID
@@ -20,6 +35,9 @@
 			element.uniqueID = ++ref.___currentUniqueID;
 		return element.uniqueID;
 	}
+	/*
+		Add a listener to the list
+	*/
 	eventMan.prototype.addToMap = function(ID, eventType, element, callback){
 		// Create a map if it doesn't exits
 		if (ID && this.list[ID] == undefined){
@@ -33,6 +51,10 @@
 			this.list[ID]._callbacks[eventType].push(callback);
 		}
 	}
+	/*
+		Core: An exposed helper which helps you bind the events
+		eventMane.attachEvent(DOM_NODE, eventType, callback)
+	*/
 	eventMan.prototype.attachEvent = function(element, eventType, callback){
 		var ID		= !element.length?this.getUniqueID(element): false;
 		var self	= this;
@@ -56,11 +78,16 @@
 		}
 		return this.addEventListener(element, el, eventType);
 	};
+	/*
+		ToDo: Not sure if blur, focus is fixed after the capture update.
+		Previously, I can't capture these events if I was listening on top level.
+	*/
 	eventMan.prototype.addEventListener = function(originalElement, el, eventType){
 		var self = this;
 		var originalElement = originalElement;
 		if (eventType == "focus" || eventType == "blur")
 			var el = originalElement;
+		// We attach a property to just to not to access the Map
 		if (el["__"+eventType] == null){
 			el["__"+eventType] = true
 			if (el["addEventListener"]){
@@ -87,6 +114,9 @@
 			}
         }
 	}
+	/*
+		He is Dumb, don't bother about him!
+	*/
 	eventMan.prototype.fireMan = function(element, event, callbacks){
 		var length = callbacks.length;
 		for (var i=0;i<length;i++)
